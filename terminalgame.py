@@ -77,7 +77,7 @@ wrong_answers = 0
 def questions(country):
     global correct_answers
     global wrong_answers
-    answer1 = input("What is +- 20% the population of {country}? Guess the number and press enter.  ".format(country = country.name))
+    answer1 = input("What is +- 20% the population of {country}? Guess the number and press enter.\n".format(country = country.name))
     if int(answer1) > (country.population * 0.90) and int(answer1) < (country.population * 1.1):
         correct_answers += 1
         print("Yes that is pretty accurate, the population of {country} is {population} and you guessed {guess}".format(country = country.name, population = country.population, guess = str(answer1)))
@@ -87,14 +87,14 @@ def questions(country):
     else:
         print("That is a worng answer, the population of {country} is {population} and you guessed {guess}".format(country = country.name, population = country.population, guess = str(answer1)))
         wrong_answers += 1
-    answer2 = input("What is the main city of {country}? Guess the name and press enter.  ".format(country = country.name))
+    answer2 = input("What is the main city of {country}? Guess the name and press enter.\n".format(country = country.name))
     if answer2 == country.main_city:
         correct_answers += 1
         print("Yes that is correct! The main city of {country} is {city}!".format(country = country.name, city = country.main_city))
     else:
         wrong_answers += 1
         print("That is not right, the main city of {country} is {city}.".format(country = country.name, city = country.main_city))
-    answer3 = input("What is +- 40% the population of {city} the main city of {country}?. Guess the number and press enter.  ".format(city = country.main_city, country = country.name))
+    answer3 = input("What is +- 40% the population of {city} the main city of {country}?. Guess the number and press enter.\n".format(city = country.main_city, country = country.name))
     if int(answer3) > (country.mc_population * 0.80) and int(answer3) < (country.mc_population * 1.2):
         correct_answers += 1
         print("Yes that is pretty accurate, the population of {city} the main city of {country} is {mcpop} and you guessed {guess}.".format(city = country.main_city, country = country.name, mcpop = country.mc_population, guess = str(answer3)))
@@ -105,7 +105,7 @@ def questions(country):
         wrong_answers += 1
         print("No that is a wrong answer, the population of {city} the main city of {country} is {mcpop} and you guessed {guess}.".format(city = country.main_city, country = country.name, mcpop = country.mc_population, guess = str(answer3)))
     if country.happiness > 0:
-        answer4 = input("Now tell me, what is the latest known happiness index for {country} from 0-10. Guess the number and press enter.  ".format(country = country.name))
+        answer4 = input("Now tell me, what is the latest known happiness index for {country} from 0-10. Guess the number and press enter.\n".format(country = country.name))
         if float(answer4) > (country.happiness - 0.5) and float(answer4) < (country.happiness + 0.5):
             correct_answers += 1
             print("That is close enough, the latest known happiness index for {country} is {index} and you guessed {guess}.".format(country = country.name, index = country.happiness, guess = str(answer4)))
@@ -142,5 +142,5 @@ def quiz():
         message += " Well, you better be good at something else with this kind of \"knowledge\"."
     print(message)
     
-        
+print("Welcome! its time for a QUIZ!")
 quiz()
