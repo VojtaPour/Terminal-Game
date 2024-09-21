@@ -118,9 +118,12 @@ def questions(country):
     for option in options:
         options[option] = wanswers1[num]
         num += 1
-    answer1 = options[input("What is the population of {country}? Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))]
-    while answer1 != options["a"] and answer1 != options["b"] and answer1 != options["c"] and answer1 != options["d"]:
-        answer1 = options[input("That is not an option, please choose from one of the available options.\n")]
+    check1 = input("What is the population of {country}? Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))
+    checking1 = check1.lower()
+    while checking1 != "a" and checking1 != "b" and checking1 != "c" and checking1 != "d":
+        check1 = input("That is not an option, please choose from one of the available options.\n")
+        checking1 = check1.lower()
+    answer1 = options[checking1]
     if answer1 == ranswer1:
         print("Yes that is correct! Population of {country} is {population}.".format(country = country.name, population = country.population))
         correct_answers += 1
@@ -140,9 +143,12 @@ def questions(country):
     for option in options:
         options[option] = wanswers2[num]
         num += 1
-    answer2 = options[input("What is the main city of {country}? Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))]
-    while answer2 != options["a"] and answer2 != options["b"] and answer2 != options["c"] and answer2 != options["d"]:
-        answer2 = options[input("That is not an option, please choose from one of the available options.\n")]
+    check2 = input("What is the main city of {country}? Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))
+    checking2 = check2.lower()
+    while checking2 != "a" and checking2 != "b" and checking2 != "c" and checking2 != "d":
+        check2 = input("That is not an option, please choose from one of the available options.\n")
+        checking2 = check2.lower()
+    answer2 = options[checking2]
     if answer2 == ranswer2:
         print("Yes that is correct! The main city of {country} is {city}!".format(country = country.name, city = country.main_city))
         correct_answers += 1
@@ -162,9 +168,12 @@ def questions(country):
     for option in options:
         options[option] = wanswers3[num]
         num += 1
-    answer3 = options[input("What is the population of {city} the main city of {country}?. Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(city = country.main_city, country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))]
-    while answer3 != options["a"] and answer3 != options["b"] and answer3 != options["c"] and answer3 != options["d"]:
-        answer3 = options[input("That is not an option, please choose from one of the available options.\n")]
+    check3 = input("What is the population of {city} the main city of {country}?. Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(city = country.main_city, country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))
+    checking3 = check3.lower()
+    while checking3 != "a" and checking3 != "b" and checking3 != "c" and checking3 != "d":
+        check3 = input("That is not an option, please choose from one of the available options.\n")
+        checking3 = check3.lower()
+    answer3 = options[checking3]
     if answer3 == ranswer3:
         print("Yes that is correct! Population of {city} the main city of {country} is {mcpop}.".format(city = country.main_city, country = country.name, mcpop = country.mc_population))
         correct_answers += 1
@@ -186,9 +195,12 @@ def questions(country):
         for option in options:
             options[option] = wanswers4[num]
             num += 1
-        answer4 = options[input("Now tell me, what is the latest known happiness index for {country} from 0-10. Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))]
-        while answer4 != options["a"] and answer4 != options["b"] and answer4 != options["c"] and answer4 != options["d"]:
-            answer4 = options[input("That is not an option, please choose from one of the available options.\n")]
+        check4 = input("Now tell me, what is the latest known happiness index for {country} from 0-10. Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))
+        checking4 = check4.lower()
+        while checking4 != "a" and checking4 != "b" and checking4 != "c" and checking4 != "d":
+            check4 = input("That is not an option, please choose from one of the available options.\n")
+            checking4 = check4.lower()
+        answer4 = options[checking4]    
         if answer4 == ranswer4:
             print("CORRECT! The latest known happiness index for {country} is {index}.".format(country = country.name, index = country.happiness))
             correct_answers += 1
