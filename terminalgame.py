@@ -4,7 +4,11 @@ import random
 #The Eu class represeting all EU country objects
 class Eu_country:
     continent = "Europe"
-    country_count = 0
+    options_pop = []
+    options_main = []
+    options_mainpop = []
+    options_index = []
+    
     def __init__(self, name, population, main_city, mc_population, happiness_index = 0):
         self.name = name
         self.population = population
@@ -22,54 +26,56 @@ class Eu_country:
             message += " The happiness index of {country} is not currently known.".format(country = self.name)
         return message
     
+    def options(self, country):
+        option1 = 
     
 
 
 #The countries from EU with their respective variables
-albania = Eu_country("Albania", 2791765, "Tirana", 418495, 5.304)
-andorra = Eu_country("Andorra", 81938, "Andorra la Vella", 24042)
-austria = Eu_country("Austria", 9120813, "Vienna", 2014614, 6.905)
-belarus = Eu_country("Belarus", 9056696, "Minsk", 1992862, 5.82)
-belgium = Eu_country("Belgium", 11738763, "Brussels", 1249597, 6.894)
-bosnia_and_herzegovina = Eu_country("Bosnia and Herzegovina", 3164253, "Sarajevo", 275524, 5.877)
-bulgaria = Eu_country("Bulgaria", 6757689, "Sofia", 1236000, 5.463)
-croatia = Eu_country("Croatia", 3875325, "Zagreb", 806341, 5.882)
-czech_republic = Eu_country("Czech Republic", 10735859, "Prague", 1309000, 6.822)
-denmark = Eu_country("Denmark", 5977412, "Copenhagen", 602481, 7.583)
-estonia = Eu_country("Estonia", 1360546, "Tallinn", 394024, 6.448)
-finland = Eu_country("Finland", 5617310, "Helsinky", 658864, 7.741)
-france = Eu_country("France", 66548530, "Paris", 2138551, 6.610)
-germany = Eu_country("Germany", 84552242, "Berlin", 3426354, 6.720)
-greece = Eu_country("Greece", 10047817, "Athens", 664046, 5.934)
-holy_see = Eu_country("Holy See", 764, "Vatican", 764)
-hungary = Eu_country("Hungary", 9676135, "Budapest", 1741041, 6.017)
-iceland = Eu_country("Iceland", 5255017, "Rejkjavik", 118918, 7.525)
-ireland = Eu_country("Ireland", 5255017, "Dublin", 1024027, 6.838)
-italy = Eu_country("Italy", 59342867, "Rome", 2318895, 6.324)
-latvia = Eu_country("Latvia", 1871871, "Riga", 742572, 6.235)
-liechtenstein = Eu_country("Liechtenstein", 39870, "Vaduz", 5450)
-lithuania = Eu_country("Lithuania", 2859110, "Vilnius", 542366, 6.818)
-luxembourg = Eu_country("Luxembourg", 673036, "Luxembourg", 76684, 7.122)
-malta = Eu_country("Malta", 539607, "San Pawl il-Bahar", 32042, 6.346)
-moldova = Eu_country("Moldova", 3034961, "Chisinau", 635994, 5.816)
-monaco = Eu_country("Monaco", 38631, "Monaco-Ville", 975)
-montenegro = Eu_country("Montenegro", 638479, "Podgorica", 236852, 5.707)
-netherlands = Eu_country("Netherlands", 18228742, "Amsterdam", 741636, 7.319)
-north_macedonia = Eu_country("North Macedonia", 1823009, "Skopje", 474889, 5.369)
-norway = Eu_country("Norway", 5576660, "Oslo", 580000, 7.302)
-poland = Eu_country("Poland", 38539201, "Warsaw", 1702139, 6.442)
-portugal = Eu_country("Portugal", 10425292, "Lisbon", 517802, 6.030)
-romania = Eu_country("Romania", 19015088, "Bucharest", 1877155, 6.491)
-russia = Eu_country("Russia", 144820423, "Moscow", 10381222, 5.785)
-san_marino = Eu_country("San Marino", 33581, "San Marino", 4040)
-serbia = Eu_country("Serbia", 6736216, "Belgrade", 1273651, 6.411)
-slovakia = Eu_country("Slovakia", 5506760, "Bratislava", 423737, 6.257)
-slovenia = Eu_country("Slovenia", 2118697, "Ljubljana", 272220, 6.743)
-spain = Eu_country("Spain", 47910526, "Madrid", 3255944, 6.421)
-sweden = Eu_country("Sweden", 10606999, "Stockholm", 1515017, 7.344)
-switzerland = Eu_country("Switzerland", 8921981, "Zurich", 341730, 7.060)
-ukraine = Eu_country("Ukraine", 37860221, "Kyiv", 2797553, 4.873)
-united_kingdom = Eu_country("United Kingdom", 69138192, "London", 8961989, 6.749)
+albania = Eu_country("Albania", "2 791 765", "Tirana", "418 495", 5.304)
+andorra = Eu_country("Andorra", "81 938", "Andorra la Vella", "24 042")
+austria = Eu_country("Austria", "9 120 813", "Vienna", "2 014 614", 6.905)
+belarus = Eu_country("Belarus", "9 056 696", "Minsk", "1 992 862", 5.82)
+belgium = Eu_country("Belgium", "11 738 763", "Brussels", "1 249 597", 6.894)
+bosnia_and_herzegovina = Eu_country("Bosnia and Herzegovina", "3 164 253", "Sarajevo", "275524", 5.877)
+bulgaria = Eu_country("Bulgaria", "6 757 689", "Sofia", "1 236 000", 5.463)
+croatia = Eu_country("Croatia", "3 875 325", "Zagreb", "806 341", 5.882)
+czech_republic = Eu_country("Czech Republic", "10 735 859", "Prague", "1 309 000", 6.822)
+denmark = Eu_country("Denmark", "5 977 412", "Copenhagen", "602 481", 7.583)
+estonia = Eu_country("Estonia", "1 360 546", "Tallinn", "394 024", 6.448)
+finland = Eu_country("Finland", "5 617 310", "Helsinky", "658 864", 7.741)
+france = Eu_country("France", "66 548 530", "Paris", "2 138 551", 6.610)
+germany = Eu_country("Germany", "84 552 242", "Berlin", "3 426 354", 6.720)
+greece = Eu_country("Greece", "10 047 817", "Athens", "664 046", 5.934)
+holy_see = Eu_country("Holy See", "764", "Vatican", "764")
+hungary = Eu_country("Hungary", "9 676 135", "Budapest", "1 741 041", 6.017)
+iceland = Eu_country("Iceland", "5 255 017", "Rejkjavik", "118 918", 7.525)
+ireland = Eu_country("Ireland", "5 255 017", "Dublin", "1 024 027", 6.838)
+italy = Eu_country("Italy", "59 342 867", "Rome", "2 318 895", 6.324)
+latvia = Eu_country("Latvia", "1 871 871", "Riga", "742 572", 6.235)
+liechtenstein = Eu_country("Liechtenstein", "39 870", "Vaduz", "5 450")
+lithuania = Eu_country("Lithuania", "2 859 110", "Vilnius", "542 366", 6.818)
+luxembourg = Eu_country("Luxembourg", "673 036", "Luxembourg", "76 684", 7.122)
+malta = Eu_country("Malta", "539 607", "San Pawl il-Bahar", "32 042", 6.346)
+moldova = Eu_country("Moldova", "3 034 961", "Chisinau", "635 994", 5.816)
+monaco = Eu_country("Monaco", "38 631", "Monaco-Ville", "975")
+montenegro = Eu_country("Montenegro", "638 479", "Podgorica", "236 852", 5.707)
+netherlands = Eu_country("Netherlands", "18 228 742", "Amsterdam", "741 636", 7.319)
+north_macedonia = Eu_country("North Macedonia", "1 823 009", "Skopje", "474 889", 5.369)
+norway = Eu_country("Norway", "5 576 660", "Oslo", "580 000", 7.302)
+poland = Eu_country("Poland", "38 539 201", "Warsaw", "1 702 139", 6.442)
+portugal = Eu_country("Portugal", "10 425 292", "Lisbon", "517 802", 6.030)
+romania = Eu_country("Romania", "19 015 088", "Bucharest", "1 877 155", 6.491)
+russia = Eu_country("Russia", "144 820 423", "Moscow", "10 381 222", 5.785)
+san_marino = Eu_country("San Marino", "33 581", "San Marino", 4040)
+serbia = Eu_country("Serbia", "6 736 216", "Belgrade", "1 273 651", 6.411)
+slovakia = Eu_country("Slovakia", "5 506 760", "Bratislava", "423 737", 6.257)
+slovenia = Eu_country("Slovenia", "2 118 697", "Ljubljana", "272 220", 6.743)
+spain = Eu_country("Spain", "47 910 526", "Madrid", "3 255 944", 6.421)
+sweden = Eu_country("Sweden", "10 606 999", "Stockholm", "1 515 017", 7.344)
+switzerland = Eu_country("Switzerland", "8 921 981", "Zurich", "341 730", 7.060)
+ukraine = Eu_country("Ukraine", "37 860 221", "Kyiv", "2 797 553", 4.873)
+united_kingdom = Eu_country("United Kingdom", "69 138 192", "London", "8 961 989", 6.749)
 
 correct_answers = 0
 wrong_answers = 0
