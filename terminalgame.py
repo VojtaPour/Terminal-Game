@@ -15,8 +15,10 @@ class Eu_country:
         self.main_city = main_city
         self.mc_population = mc_population
         self.happiness = happiness_index
-        Eu_country.country_count += 1
-        self.id = Eu_country.country_count
+        Eu_country.options_pop.append(self.population)
+        Eu_country.options_main.append(self.main_city)
+        Eu_country.options_mainpop.append(self.mc_population)
+        Eu_country.options_index.append(self.happiness)
 
     def __repr__(self):
         message = "The {country} has population of {population} people. The main city is {city} and has population of {mc_pop} people.".format(country = self.name, population = self.population, city = self.main_city, mc_pop = self.mc_population, index = self.happiness)
@@ -26,8 +28,16 @@ class Eu_country:
             message += " The happiness index of {country} is not currently known.".format(country = self.name)
         return message
     
-    def options(self, country):
-        option1 = 
+    def options(self):
+        ranswer1 = self.population
+        ranswer2 = self.main_city
+        ranswer3 = self.mc_population
+        ranswer4 = self.happiness
+
+        
+
+
+
     
 
 
@@ -80,47 +90,114 @@ united_kingdom = Eu_country("United Kingdom", "69 138 192", "London", "8 961 989
 correct_answers = 0
 wrong_answers = 0
 
+
+
+
 def questions(country):
     global correct_answers
     global wrong_answers
-    answer1 = input("What is +- 20% the population of {country}? Guess the number and press enter.\n".format(country = country.name))
-    if int(answer1) > (country.population * 0.90) and int(answer1) < (country.population * 1.1):
-        correct_answers += 1
-        print("Yes that is pretty accurate, the population of {country} is {population} and you guessed {guess}".format(country = country.name, population = country.population, guess = str(answer1)))
-    elif int(answer1) > (country.population * 0.8) and int(answer1) < (country.population * 1.2):        
-        print("Yes, close enough! The population of {country} is {population} and you guessed {guess}".format(country = country.name, population = country.population, guess = str(answer1)))
+
+    ranswer1 = country.population
+    ranswer2 = country.main_city
+    ranswer3 = country.mc_population
+    ranswer4 = country.happiness
+
+    wanswers1 = []
+    wanswers2 = []
+    wanswers3 = []
+    wanswers4 = []
+    options = {"a": "", "b": "", "c": "", "d": ""}
+    #Q1
+    while len(wanswers1) != 3:
+        random_ans = random.choice(Eu_country.options_pop)
+        if random_ans != ranswer1:
+            wanswers1.append(random_ans)
+    wanswers1.append(ranswer1)
+    random.shuffle(wanswers1)
+    num = 0
+    for option in options:
+        options[option] = wanswers1[num]
+        num += 1
+    answer1 = options[input("What is the population of {country}? Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))]
+    while answer1 != options["a"] and answer1 != options["b"] and answer1 != options["c"] and answer1 != options["d"]:
+        answer1 = options[input("That is not an option, please choose from one of the available options.\n")]
+    if answer1 == ranswer1:
+        print("Yes that is correct! Population of {country} is {population}.".format(country = country.name, population = country.population))
         correct_answers += 1
     else:
-        print("That is a worng answer, the population of {country} is {population} and you guessed {guess}".format(country = country.name, population = country.population, guess = str(answer1)))
+        print("That is the wrong answer, population of {country} is {population}.".format(country = country.name, population = country.population))
         wrong_answers += 1
-    answer2 = input("What is the main city of {country}? Guess the name and press enter.\n".format(country = country.name))
-    if answer2 == country.main_city:
-        correct_answers += 1
+        
+    
+    #Q2
+    while len(wanswers2) != 3:
+        random_ans = random.choice(Eu_country.options_main)
+        if random_ans != ranswer2:
+            wanswers2.append(random_ans)
+    wanswers2.append(ranswer2)
+    random.shuffle(wanswers2)
+    num = 0
+    for option in options:
+        options[option] = wanswers2[num]
+        num += 1
+    answer2 = options[input("What is the main city of {country}? Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))]
+    while answer2 != options["a"] and answer2 != options["b"] and answer2 != options["c"] and answer2 != options["d"]:
+        answer2 = options[input("That is not an option, please choose from one of the available options.\n")]
+    if answer2 == ranswer2:
         print("Yes that is correct! The main city of {country} is {city}!".format(country = country.name, city = country.main_city))
+        correct_answers += 1
     else:
-        wrong_answers += 1
         print("That is not right, the main city of {country} is {city}.".format(country = country.name, city = country.main_city))
-    answer3 = input("What is +- 40% the population of {city} the main city of {country}?. Guess the number and press enter.\n".format(city = country.main_city, country = country.name))
-    if int(answer3) > (country.mc_population * 0.80) and int(answer3) < (country.mc_population * 1.2):
-        correct_answers += 1
-        print("Yes that is pretty accurate, the population of {city} the main city of {country} is {mcpop} and you guessed {guess}.".format(city = country.main_city, country = country.name, mcpop = country.mc_population, guess = str(answer3)))
-    elif int(answer3) > (country.mc_population * 0.60) and int(answer3) < (country.mc_population * 1.4):
-        correct_answers += 1
-        print("Yes close enough, the population of {city} the main city of {country} is {mcpop} and you guessed {guess}.".format(city = country.main_city, country = country.name, mcpop = country.mc_population, guess = str(answer3)))
-    else:
         wrong_answers += 1
-        print("No that is a wrong answer, the population of {city} the main city of {country} is {mcpop} and you guessed {guess}.".format(city = country.main_city, country = country.name, mcpop = country.mc_population, guess = str(answer3)))
+
+
+    #Q3
+    while len(wanswers3) != 3:
+        random_ans = random.choice(Eu_country.options_mainpop)
+        if random_ans != ranswer3:
+            wanswers3.append(random_ans)
+    wanswers3.append(ranswer3)
+    random.shuffle(wanswers3)
+    num = 0
+    for option in options:
+        options[option] = wanswers3[num]
+        num += 1
+    answer3 = options[input("What is the population of {city} the main city of {country}?. Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(city = country.main_city, country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))]
+    while answer3 != options["a"] and answer3 != options["b"] and answer3 != options["c"] and answer3 != options["d"]:
+        answer3 = options[input("That is not an option, please choose from one of the available options.\n")]
+    if answer3 == ranswer3:
+        print("Yes that is correct! Population of {city} the main city of {country} is {mcpop}.".format(city = country.main_city, country = country.name, mcpop = country.mc_population))
+        correct_answers += 1
+    else:
+        print("No that is the wrong answer, population of {city} the main city of {country} is {mcpop}.".format(city = country.main_city, country = country.name, mcpop = country.mc_population))
+        wrong_answers += 1
+
+
+
+    #Q4
     if country.happiness > 0:
-        answer4 = input("Now tell me, what is the latest known happiness index for {country} from 0-10. Guess the number and press enter.\n".format(country = country.name))
-        if float(answer4) > (country.happiness - 0.5) and float(answer4) < (country.happiness + 0.5):
+        while len(wanswers4) != 3:
+            random_ans = random.choice(Eu_country.options_index)
+            if random_ans != ranswer4:
+                wanswers4.append(random_ans)
+        wanswers4.append(ranswer4)
+        random.shuffle(wanswers4)
+        num = 0
+        for option in options:
+            options[option] = wanswers4[num]
+            num += 1
+        answer4 = options[input("Now tell me, what is the latest known happiness index for {country} from 0-10. Select the correct option and press enter. Choose from a) {a}, b) {b}, c) {c}, or d) {d}.\n".format(country = country.name, a = options["a"], b = options["b"], c = options["c"], d = options["d"]))]
+        while answer4 != options["a"] and answer4 != options["b"] and answer4 != options["c"] and answer4 != options["d"]:
+            answer4 = options[input("That is not an option, please choose from one of the available options.\n")]
+        if answer4 == ranswer4:
+            print("CORRECT! The latest known happiness index for {country} is {index}.".format(country = country.name, index = country.happiness))
             correct_answers += 1
-            print("That is close enough, the latest known happiness index for {country} is {index} and you guessed {guess}.".format(country = country.name, index = country.happiness, guess = str(answer4)))
         else:
+            print("That is wrong, the latest known happiness index for {country} is {index}.".format(country = country.name, index = country.happiness))
             wrong_answers += 1
-            print("That is wrong, the latest known happiness index for {country} is {index} and you guessed {guess}.".format(country = country.name, index = country.happiness, guess = str(answer4)))
     total_answers = correct_answers + wrong_answers
     correct_percentage = correct_answers / (total_answers * 0.01)
-    print("You have answered {number} questions with a {percent}% of correct answers until now, keep it up!".format(number = str(total_answers), percent = str(correct_percentage)))       
+    print("\nYou have answered {number} questions with a {percent}% of correct answers until now, keep it up!\n".format(number = str(total_answers), percent = str(correct_percentage)))
 
 
 
@@ -148,5 +225,5 @@ def quiz():
         message += " Well, you better be good at something else with this kind of \"knowledge\"."
     print(message)
     
-print("Welcome! its time for a QUIZ!")
+print("Welcome! its time for a QUIZ!\n")
 quiz()
